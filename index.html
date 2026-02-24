@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Earth</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:black;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+/* NAVIGATION */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:20px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00ffff;
+    transform:scale(1.2);
+}
+
+/* SECTIONS */
+section{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+h1{
+    font-size:60px;
+    margin-bottom:20px;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+p{
+    width:60%;
+    font-size:20px;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1.5s ease;
+}
+
+/* BACKGROUNDS */
+#underwater{background:linear-gradient(to bottom,#001f3f,#0074D9);}
+#forest{background:linear-gradient(to top,#013220,#145A32);}
+#desert{background:linear-gradient(to top,#C19A6B,#EED9C4); color:black;}
+#mountain{background:linear-gradient(to top,#2C3E50,#BDC3C7);}
+#sky{background:linear-gradient(to top,#1E90FF,#87CEFA);}
+
+/* PARTICLES */
+.particle{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:white;
