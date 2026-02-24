@@ -89,3 +89,90 @@ p{
     width:10px;
     height:10px;
     background:white;
+    border-radius:50%;
+    opacity:0.6;
+    animation:float 10s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/* ACTIVE CLASS */
+.show h1, .show p{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#underwater">Underwater</a>
+    <a href="#forest">Forest</a>
+    <a href="#desert">Desert</a>
+    <a href="#mountain">Mountain</a>
+    <a href="#sky">Sky</a>
+</nav>
+
+<section id="underwater">
+    <h1>🌊 Underwater World</h1>
+    <p>Explore mysterious ocean depths filled with coral reefs and marine creatures.</p>
+</section>
+
+<section id="forest">
+    <h1>🌴 Green Forest</h1>
+    <p>Lush forests with rich biodiversity and life-sustaining ecosystems.</p>
+</section>
+
+<section id="desert">
+    <h1>🏜 Desert Landscape</h1>
+    <p>Golden sand dunes and extreme climates with specially adapted wildlife.</p>
+</section>
+
+<section id="mountain">
+    <h1>🏔 Majestic Mountains</h1>
+    <p>High peaks that shape continents and influence global weather patterns.</p>
+</section>
+
+<section id="sky">
+    <h1>☁ Endless Sky</h1>
+    <p>The vast atmosphere where clouds form and birds soar high.</p>
+</section>
+
+<script>
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 150){
+            sec.classList.add("show");
+        }
+    });
+});
+
+/* PARTICLES GENERATOR */
+function createParticles(sectionId, count){
+    const section = document.getElementById(sectionId);
+    for(let i=0;i<count;i++){
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDuration = (5 + Math.random() * 5) + "s";
+        particle.style.opacity = Math.random();
+        section.appendChild(particle);
+    }
+}
+
+createParticles("underwater", 30);
+createParticles("sky", 20);
+
+</script>
+
+</body>
+</html>
